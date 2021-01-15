@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+
+    &__logo-box {
+        padding: 1rem;
+
+        & h1 {
+            margin-bottom: 2rem;
+        }
+    }
+}
