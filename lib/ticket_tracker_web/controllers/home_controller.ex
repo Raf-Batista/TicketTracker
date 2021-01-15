@@ -1,4 +1,4 @@
-defmodule TicketTrackerWeb.HomePageController do
+defmodule TicketTrackerWeb.HomeController do
   use TicketTrackerWeb, :controller
 
   def index(conn, _params) do
