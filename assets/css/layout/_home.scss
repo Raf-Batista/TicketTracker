@@ -1,0 +1,9 @@
+.home {
+    text-align: center;
+    font-size: 2rem;
+
+    &__text-box span {
+        display: block;
+        margin: 2rem 0;
+    }
+}
