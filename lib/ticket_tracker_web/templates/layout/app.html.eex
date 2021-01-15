@@ -47,7 +47,9 @@
           </ul>
       </nav>
 
-      <%= @inner_content %>
-
+      <main>
+         <%= @inner_content %>
+      </main>
+    
   </body>
 </html>
