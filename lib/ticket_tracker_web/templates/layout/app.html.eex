@@ -9,12 +9,45 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <header>
-     
-    </header>
-    <main role="main" class="container">
-      
+      <%# NAVIGATION %>
+      <input type="checkbox" id="theme-checkbox"></input>
+      <nav class="navbar">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <span class="link-text">Home</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <span class="link-text">Projects</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <span class="link-text">Tickets</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <span class="link-text">Account</span>
+                  </a>
+              </li>
+
+              <li class="nav-item" id="nav-arrow">
+                  <div id="arrow"><span>&rarr;    </span></div>
+              </li>
+
+              <li class="nav-item" id="theme-switch">
+                  <input type="checkbox" id="theme-checkbox">
+                  <label for="theme-checkbox" id="theme-label">Theme</label>
+
+                  </a>
+              </li>
+          </ul>
+      </nav>
+
       <%= @inner_content %>
-    </main>
+
   </body>
 </html>
