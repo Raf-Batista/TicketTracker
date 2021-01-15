@@ -16,7 +16,7 @@ defmodule TicketTrackerWeb.Router do
   scope "/", TicketTrackerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", HomePageController, :index
   end
 
   # Other scopes may use custom stacks.
