@@ -49,9 +49,15 @@
           </ul>
       </nav>
 
-      <main>
-         <%= @inner_content %>
-      </main>
-    
+      <%# HEADING %>
+      <heading class="header">
+        <div class="header__logo-box">
+            <h1>Ticket Tracker</h1>
+            <span>Create and manage tickets for your projects</span>
+        </div>
+      </heading>
+
+      <%= @inner_content %>
+ 
   </body>
 </html>
