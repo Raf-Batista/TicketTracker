@@ -1,0 +1,181 @@
+.navbar {
+    width: .5rem;
+    height: 100vh;
+    position: fixed;
+    background-color: $bg-primary-dark;
+    text-align: center;
+    transition: all .5s ease;
+    font-weight: bold;
+    z-index: 100;
+ }
+ 
+ .navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+ }
+ 
+ .nav-item {
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 2rem;
+    display: block;
+    text-transform: uppercase;
+    transition: all .5s;
+    padding: 1rem 0;
+ }
+ 
+ .nav-link {
+    color: wheat;
+    opacity: 0;
+    visibility: hidden;
+    text-decoration: none;
+ }
+ 
+ .navbar:hover .nav-item .nav-link {
+    opacity: 1;
+    visibility: visible;
+ }
+ 
+ .navbar:hover .icon {
+    opacity: 1;
+ }
+ 
+ .navbar:hover #theme-switch {
+    opacity: 1;
+    visibility: visible;
+ }
+ 
+ #nav-arrow {
+   position: absolute;
+   top: 50%;
+   z-index: -100;
+ }
+ 
+ #arrow {
+    height: 5rem;
+    width: 5rem;
+    background-color: $bg-primary-dark;
+    border-radius: 50%;
+    transform: translateX(-3rem);
+    color: wheat;
+    position: relative;
+    transition: all .2s;
+ }
+ 
+ #arrow span {
+    position: absolute;
+    top: 25%;
+    font-size: 2rem;
+ }
+ 
+ .navbar:hover #arrow {
+    opacity: 0;
+ }
+ 
+ #theme-switch {
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+ }
+ 
+ #theme-checkbox {
+    display: none;
+ }
+ 
+ #theme-label {
+    color: wheat;
+    cursor: pointer;
+ }
+ 
+ #theme-checkbox:checked + nav {
+    background-color: $bg-primary-light;
+ }
+ 
+ #theme-checkbox:checked + .navbar .navbar-nav .nav-item .nav-link {
+    color: #141418;
+ }
+ 
+ #theme-checkbox:checked + .navbar #theme-label {
+    color: #141418;
+ }
+ 
+ #theme-checkbox:checked + .navbar #arrow {
+    background-color: beige;
+    color: black;
+ }
+ 
+ /* Stops users from highlighting text */
+ nav {
+    -o-user-select: none;
+    user-select: none;
+ }
+ 
+ /* Small Screen */
+ @media only screen and (max-width: 600px) {
+    .navbar {
+        width: 100vw;
+        height: 5rem;
+        bottom: 0;
+    }
+ 
+    .navbar-nav {
+        flex-direction: row;
+    }
+ 
+    .navbar .nav-item .nav-link {
+        opacity: 1;
+        visibility: visible;
+    }
+ 
+    .nav-item {
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        background-image: none;
+        background-size: 0;
+    }
+ 
+    #arrow {
+        display: none;
+    }
+ 
+    #theme-switch {
+        opacity: 1;
+        visibility: visible;
+    }
+ }
+ 
+ 
+ /* Large screens */
+ 
+ @media only screen and (min-width: 600px) {
+    .navbar {
+        width: .5rem;
+        height: 100vh;
+        top: 0;
+    }
+ 
+    .navbar:hover {
+        width: 10rem;
+    }
+ 
+    .nav-item:not(#nav-arrow) {
+        background-image: linear-gradient(90deg, transparent 0%, transparent 50%, white 50%);
+        background-size: 370%;
+    }
+ 
+    .nav-item:hover:not(#nav-arrow),
+    .nav-item:active:not(#nav-arrow) {
+        background-position: 100%;
+        transform: translateX(1rem);
+    }
+ 
+    .nav-item:last-child {
+        margin-top: auto;
+    }
+ }
