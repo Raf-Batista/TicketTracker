@@ -1,11 +1,13 @@
 use Mix.Config
 
+host = System.get_env("PG_HOST")
+
 # Configure your database
 config :ticket_tracker, TicketTracker.Repo,
   username: "postgres",
   password: "postgres",
   database: "ticket_tracker_dev",
-  hostname: "localhost",
+  hostname: host,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
