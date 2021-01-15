@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+    db:
+        container_name: ticket-tracker-postgres
+        image: postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        restart: always
+        volumes:
+            - ./tmp/db:/var/lib/postgresql/data
+    web:
+        container_name: phoenix
+        image: bitwalker/alpine-elixir-phoenix:latest
+        depends_on:
+        - db
+        working_dir: /app
+        volumes:
+            - .:/app
+        environment:
+            MIX_ENV: dev
+            PG_USER: postgres
+            PG_PASSWORD: postgres
+            PG_DATABASE: ticket_tracker_dev
+            PG_PORT: 5432
+            PG_HOST: db
+        ports:
+            - '4000:4000'
+        command: bash -c "mix deps.get && mix deps.compile && cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development && cd .. && mix phx.server" 
