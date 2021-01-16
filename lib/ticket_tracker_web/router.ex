@@ -1,5 +1,6 @@
 defmodule TicketTrackerWeb.Router do
   use TicketTrackerWeb, :router
+  require Ueberauth
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -18,6 +19,14 @@ defmodule TicketTrackerWeb.Router do
 
     get "/", HomeController, :index
   end
+
+  scope "/auth", PhoenixForumWeb do
+    pipe_through :browser
+
+    get "/signout", AuthController, :signout
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+  end  
 
   # Other scopes may use custom stacks.
   # scope "/api", TicketTrackerWeb do
